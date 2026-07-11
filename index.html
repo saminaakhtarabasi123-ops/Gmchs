@@ -229,15 +229,71 @@ middle:{ label:"Middle", sub:"Class 6 – 8", classes:[6,7,8],
 },
 high:{ label:"High", sub:"Class 9 – 10", classes:[9,10],
   subjects:{
-    math:{label:"Mathematics", icon:"➗", qs:[
-      ["Solve: x² − 5x + 6 = 0, roots are?",["2 and 3","1 and 6","−2 and −3","2 and −3"],0],
-      ["Value of sin 90°?",["0","1","0.5","undefined"],1],
-      ["Pythagoras theorem applies to which triangle?",["Equilateral","Right-angled","Isosceles only","Scalene only"],1],
-      ["What is the value of π (approx)?",["3.41","3.14","3.12","3.20"],1],
-      ["If a = 3 and b = 4, what is a² + b²?",["7","12","25","49"],2],
-      ["The formula for area of a circle is?",["2πr","πr²","πd","πr"],1],
-      ["Mean of 2, 4, 6, 8, 10 is?",["5","6","7","8"],1],
-      ["Log base 10 of 100 is?",["1","2","10","100"],1]
+    math:{label:"Mathematics", icon:"➗", syllabusAligned:true, chapters:[
+      {title:"Ch 1: Real and Complex Numbers", qs:[
+        ["Which of these is an irrational number?",["1.5","√2","3/4","0"],1],
+        ["The conjugate of the complex number 3+4i is?",["3−4i","−3+4i","4+3i","−3−4i"],0]
+      ]},
+      {title:"Ch 2: Logarithms", qs:[
+        ["log₁₀(100) = ?",["1","2","10","100"],1],
+        ["log_b(1) is always?",["b","0","1","undefined"],1]
+      ]},
+      {title:"Ch 3: Algebraic Expressions", qs:[
+        ["Simplify: (x+2)(x−2) =",["x²−4","x²+4","x²−2x−4","x²+2x−4"],0],
+        ["A rational expression is a ratio of two?",["Integers","Polynomials","Irrational numbers","Matrices"],1]
+      ]},
+      {title:"Ch 4: Factorization", qs:[
+        ["Factorize: x² − 9",["(x−3)(x+3)","(x−9)(x+1)","(x−3)²","(x+9)(x−1)"],0],
+        ["A zero of a polynomial is a value that makes it equal to?",["1","0","−1","undefined"],1]
+      ]},
+      {title:"Ch 5: Algebraic Manipulations", qs:[
+        ["HCF stands for?",["Highest Common Factor","Half Common Fraction","Highest Common Fraction","Half Common Factor"],0],
+        ["LCM of 4 and 6 is?",["24","12","10","8"],1]
+      ]},
+      {title:"Ch 6: Linear Equations", qs:[
+        ["Solve: 2x + 3 = 11, x = ?",["3","4","5","6"],1],
+        ["A linear equation in one variable has degree?",["0","1","2","3"],1]
+      ]},
+      {title:"Ch 7: Linear Graphs and their Applications", qs:[
+        ["The graph of a linear equation is a?",["Straight line","Parabola","Circle","Curve"],0],
+        ["Slope of a horizontal line is?",["Undefined","1","0","−1"],2]
+      ]},
+      {title:"Ch 8: Quadratic Equations", qs:[
+        ["Standard form of a quadratic equation is?",["ax+b=0","ax²+bx+c=0","ax³+b=0","ax²+b=0"],1],
+        ["Number of roots of a quadratic equation is?",["1","2","3","0"],1]
+      ]},
+      {title:"Ch 9: Congruent Triangles", qs:[
+        ["Two triangles are congruent if corresponding sides and angles are?",["Equal","Proportional","Parallel","Perpendicular"],0],
+        ["SSS stands for?",["Side-Side-Side","Sum-Side-Sum","Side-Sum-Side","Sum-Sum-Side"],0]
+      ]},
+      {title:"Ch 10: Parallelograms and Triangles", qs:[
+        ["Opposite sides of a parallelogram are?",["Equal and parallel","Unequal","Perpendicular","Equal only"],0],
+        ["Diagonals of a parallelogram?",["Bisect each other","Are equal","Are perpendicular","Don't intersect"],0]
+      ]},
+      {title:"Ch 11: Line Bisectors and Angle Bisectors", qs:[
+        ["A bisector divides a line or angle into?",["2 equal parts","3 equal parts","Unequal parts","4 parts"],0],
+        ["The perpendicular bisector of a segment passes through its?",["Endpoint","Midpoint","One-third point","None"],1]
+      ]},
+      {title:"Ch 12: Sides and Angles of a Triangle", qs:[
+        ["Sum of angles in a triangle is?",["90°","180°","270°","360°"],1],
+        ["In a triangle, the longest side is opposite the?",["Smallest angle","Largest angle","Right angle","Equal angle"],1]
+      ]},
+      {title:"Ch 13: Practical Geometry - Triangles", qs:[
+        ["To construct a triangle, the minimum measurements needed are?",["2","3","4","5"],1],
+        ["A triangle can be constructed if given?",["SSS","Only 2 sides","Only 1 angle","None"],0]
+      ]},
+      {title:"Ch 14: Theorems Related with Area", qs:[
+        ["Area of a triangle with base b and height h is?",["b×h","½×b×h","2×b×h","b+h"],1],
+        ["Parallelograms on the same base and between the same parallels are?",["Equal in area","Unequal","Similar","Congruent"],0]
+      ]},
+      {title:"Ch 15: Projection of a Side of a Triangle", qs:[
+        ["The projection of a side is measured along?",["Another side","An altitude","An angle bisector","A median"],0],
+        ["Projection is used to prove theorems about?",["Circles","Triangle side relationships","Parallelograms","Logarithms"],1]
+      ]},
+      {title:"Ch 16: Introduction to Coordinate Geometry", qs:[
+        ["The point where the x-axis and y-axis meet is called the?",["Origin","Vertex","Midpoint","Focus"],0],
+        ["The distance formula is used to find?",["Distance between two points","Area of a triangle","Slope","Angle"],0]
+      ]}
     ]},
     science:{label:"Science", icon:"🔬", qs:[
       ["Newton's First Law is also known as the law of?",["Motion","Inertia","Gravity","Action-Reaction"],1],
@@ -302,7 +358,11 @@ function chunkArr(arr,size){ const out=[]; for(let i=0;i<arr.length;i+=size) out
 const BANK = JSON.parse(JSON.stringify(RAW));
 Object.values(BANK).forEach(level=>{
   Object.values(level.subjects).forEach(subj=>{
-    subj.chapters = chunkArr(subj.qs, CHUNK).map((qs,i)=>({ title:`Chapter ${i+1}`, qs }));
+    if(subj.chapters && subj.chapters.length){
+      subj.qs = subj.chapters.flatMap(c=>c.qs);
+    } else {
+      subj.chapters = chunkArr(subj.qs, CHUNK).map((qs,i)=>({ title:`Chapter ${i+1}`, qs }));
+    }
   });
 });
 
