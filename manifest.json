@@ -1,7 +1,8 @@
 {
   "name": "Taleem Ghar - GMC High School",
   "short_name": "Taleem Ghar",
-  "start_url": "/",
+  "start_url": "/Gmchs/",
+  "scope": "/Gmchs/",
   "display": "standalone",
   "background_color": "#F3ECDC",
   "theme_color": "#1B4D3E",
